@@ -1,13 +1,20 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Homie from "./pages/Homie";
+import NoMatch from "./pages/NoMatch";
+import Navbar from "./components/Nav";
 
-class App extends Component {
-  render() {
-    return (
-      <Feed />
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <div>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Homie} />
+        <Route exact path="/login" component={Home} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
