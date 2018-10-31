@@ -1,9 +1,9 @@
 import React  from 'react';
  import Carousel from "../../components/Carousel";
 import Search from "../../components/Input";
-import Footer from "../../components/Footer";
+// import Footer from "../../components/Footer";
 import Icons from "../../components/Icons";
-import Card from "../../components/Card"
+// import Card from "../../components/Card"
 
 
 
@@ -16,8 +16,8 @@ const Home = () => (
         <Carousel/>
         <Search />
         <Icons />
-        <Card />
-        <Footer />
+        {/* <Card /> */}
+        {/* <Footer /> */}
 
         </div>
     );
