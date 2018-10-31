@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, NavItem } from "react-materialize";
-import ImportedImage from "/Users/alphonsotate/Desktop/Classwork/ChefNtly/client/src/images/Logo(transparent).PNG";
+import ImportedImage from "../../images/Logo(transparent).PNG";
 import "./Nav.css";
 
 var Img = <img alt="ime" class="logo" src={ImportedImage} />;
