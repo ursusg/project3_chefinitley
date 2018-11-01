@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Input, Col } from "react-materialize";
 
 const search = () => (
-  <Row className="container">
+  <Row className="container cont">
   <Col s={6}>
     <Input
       className="#ffd54f "

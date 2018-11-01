@@ -21,8 +21,8 @@ export default () => (
     images={["https://i.postimg.cc/wM1Zrb2M/Chef-background.png"]}
   >
     <div className="container">
-      <h2 className="white-text center-align">Chicagos Most Talented Tastes</h2>
-      <h2 className="white-text center-align">This is your first panel</h2>
+      <h1 className="orange-text center-align">Chicagos Most Talented Tastes</h1>
+      <h1 className="orange-text center-align">Join The Revolution</h1>
     </div>
   </Carousel>
 );
