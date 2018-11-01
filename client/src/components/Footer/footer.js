@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "react-materialize";
-import ImportedImage from "/Users/alphonsotate/Desktop/Classwork/project3_chefinitley/client/src/images/Logo(transparent).PNG";
+import ImportedImage from "../../images/Logo(transparent).PNG";
 
 
 var Img = <img alt="ime" class="logo" src={ImportedImage} />;
