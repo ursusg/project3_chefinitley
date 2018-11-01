@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SignUpCustomer from "./pages/SignUpCustomer";
 import About from "./pages/About";
+import Feed from "./pages/FeedPage"
 
 const App = () => (
   <Router>
@@ -19,6 +20,7 @@ const App = () => (
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signupcustomer" component={SignUpCustomer} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/feed" component={Feed} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
     </div>
