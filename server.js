@@ -3,28 +3,10 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const bodyParser = require('body-parser');
-const redis = require('redis');
 require('dotenv').config();
+const mongoose = require('mongoose');
+const routes = require('./routes')
 
-
-// Create Redis client
-// let client = redis.createClient({
-//   port: process.env.DB_PORT,               // replace with your port
-//   host: process.env.DB_HOST,        // replace with your hostanme or IP address
-//   password: process.env.DB_PASSWORD,    // replace with your password
-//   // optional, if using SSL
-//   // use `fs.readFile[Sync]` or another method to bring these values in
-// });
-
-// // Connects to Redis
-// client.on('connect', () => {
-//   console.log(`Connected to Redis...`)
-// });
-
-// client.on('error', (error) => {
-//   console.log(error)
-//   console.log(process.env.DB_PASSWORD)
-// });
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,12 +17,15 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-
+app.use(routes)
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chefinately");
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

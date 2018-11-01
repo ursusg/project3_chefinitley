@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Row, Input } from "react-materialize";
+import { Row, Input, Button } from "react-materialize";
+import API from "../../utils/API"
 
 class SignUpChef extends Component {
   state = {
@@ -12,6 +13,12 @@ class SignUpChef extends Component {
     city: "",
     range: ""
   };
+
+  // Function declarations for how this component works
+  formSubmit = event => {
+    event.preventDefault()
+    console.log("Submit button works!")
+  }
 
   render() {
     return (
@@ -40,6 +47,10 @@ class SignUpChef extends Component {
             <option value="2">5-10 Miles</option>
             <option value="3">10-15 Miles</option>
           </Input>
+        </Row>
+
+        <Row>
+          <Button onclick={this.formSubmit}>Submit</Button>
         </Row>
       </div>
     );
