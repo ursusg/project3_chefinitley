@@ -21,9 +21,9 @@ router
 router
   .route("/api/chef")
   .get(chefController.findAll)
-  .then( () => {
-    console.log('dope')
-  })
+  .then( (res) => {
+    res.JSON()
+  });
 
 
 module.exports = router;

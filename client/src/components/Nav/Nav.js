@@ -3,7 +3,7 @@ import { Navbar, NavItem, Button, Modal, Row, Input, Col } from "react-materiali
 import ImportedImage from "../../images/Logo(transparent).PNG";
 import "./Nav.css";
 
-var Img = <img alt="ime" class="logo" src={ImportedImage} />;
+var Img = <img alt="ime" className="logo" src={ImportedImage} />;
 
 export default () => (
   <Navbar brand={Img} className="grey darken-2 appbar" left>
