@@ -20,10 +20,7 @@ router
 
 router
   .route("/api/chef")
-  .get(chefController.findAll)
-  .then( (res) => {
-    res.JSON()
-  });
+  .get(chefController.findAll);
 
 
 module.exports = router;
