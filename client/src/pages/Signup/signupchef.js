@@ -90,19 +90,6 @@ class SignUpChef extends Component {
         </Row>
 
         <Row>
-          <Input s={6} type="select" label="City" defaultValue="2"/>
-          <Input onChange={this.handleInputChange} s={6} label="Chef Name" name="chefName" />
-          <Input onChange={this.handleInputChange} type="email" label="Email" s={12} name="email" />
-          <Input onChange={this.handleInputChange} type="password" label="password" s={12} name="password" />
-        </Row>
-
-        <Row>
-          <Input type="textarea" label="Menu" name="foods"/>
-          <Input onChange={this.handleInputChange} type="textarea" label="Description" name="description" />
-          <Input onChange={this.handleInputChange} type="textarea" label="Availability" name="availability" />
-        </Row>
-
-        <Row>
           <Input onChange={this.handleInputChange} s={12} type="select" label="City" defaultValue="2" name="city">
             <option value="1">Chicago</option>
             <option value="2">Evanston</option>
