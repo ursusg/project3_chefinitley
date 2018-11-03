@@ -13,13 +13,13 @@ class SignUpCustomer extends Component {
 
     render() {
         return (
-          <div className="container">
+          <div className="container signups">
           <Row>
             <Input s={6} label="First Name" />
             <Input s={6} label="Last Name" />
             
-            <Input type="email" label="Email" s={12} />
-            <Input type="password" label="password" s={12} />
+            <Input type="email" label="Email" s={9} />
+            <Input type="password" label="password" s={9} />
             
           </Row>
           </div>

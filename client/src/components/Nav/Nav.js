@@ -10,7 +10,7 @@ export default () => (
     
     <NavItem href="/Signup">Chef Account</NavItem>
     <NavItem href="/SignUpCustomer">Customer Account</NavItem>
-    <Modal className="center" header="Log In with your Chefinately Account" trigger={<Button  className="brown">LogIn</Button>}>
+    <Modal className="center login" header="Log In with your Chefinately Account" trigger={<Button  className="brown">LogIn</Button>}>
       <Row>
         <Col className="center" s={12}>
         <Input  type="email" label="Email" s={6} />
@@ -18,7 +18,7 @@ export default () => (
         <Col className="center" s={12}>
         <Input  type="password" label="password" s={6} />
         </Col>
-        <Button waves='light'>Sign In</Button>
+        <Button className="orange" waves='light'>Sign In</Button>
       </Row>
     </Modal>
   </Navbar>
