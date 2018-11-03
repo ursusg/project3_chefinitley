@@ -20,7 +20,7 @@ export default () => (
   'https://lorempixel.com/800/400/food/4',
   'https://lorempixel.com/800/400/food/5'
 ]} />
-<Button ClassName="ChefButton">Find Chefs</Button>
+<Button className="ChefButton">Find Chefs</Button>
 </Col>
 </Row>
 )

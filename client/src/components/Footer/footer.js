@@ -3,7 +3,7 @@ import { Footer } from "react-materialize";
 import ImportedImage from "../../images/Logo(transparent).PNG";
 
 
-var Img = <img alt="ime" class="logo" src={ImportedImage} />;
+let Img = <img alt="ime" className="logo" src={ImportedImage} />;
 
 export default () => (
   <Footer 
