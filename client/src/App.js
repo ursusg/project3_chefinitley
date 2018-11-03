@@ -13,7 +13,7 @@ import Feed from "./pages/FeedPage"
 const App = () => (
   <Router>
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Homie} />
         <Route exact path="/login" component={Login} />
