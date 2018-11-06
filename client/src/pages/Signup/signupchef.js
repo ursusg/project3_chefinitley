@@ -5,14 +5,13 @@ import "./signupchef.css";
 
 class SignUpChef extends Component {
   state = {
-    chefName: "",
-    email: "",
-    password: "",
-    city: "",
-    bio: "",
-    foods: [],
-    availability: "",
-    range: ""
+    chefName: ""
+    // email: "",
+    // password: "",
+    // city: "",
+    // bio: "",
+    // availability: "",
+    // range: ""
   };
 
   // Function declarations for how this component works
@@ -21,21 +20,20 @@ class SignUpChef extends Component {
     console.log("Submit button works!");
 
     let chefData = {
-      chefName: this.state.chefName,
-      email: this.state.email,
-      password: this.state.password,
-      foods: this.state.foods,
-      bio: this.state.bio,
-      availability: this.state.availability,
-      city: this.state.city,
-      range: this.state.range
+      chefName: this.state.chefName
+      // email: this.state.email,
+      // password: this.state.password,
+      // foods: this.state.foods,
+      // bio: this.state.bio,
+      // availability: this.state.availability,
+      // city: this.state.city,
+      // range: this.state.range
     }
 
     console.log(chefData)
-    API.saveChef({
+    API.saveChef(
       chefData
-    })
-      .then(res => console.log(res))
+    )
       .catch(err => console.log(err));
   };
 

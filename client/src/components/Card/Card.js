@@ -16,7 +16,7 @@ export default () => (
 <Carousel options={{ fullWidth: true }} images={[
   'https://i.postimg.cc/wM1Zrb2M/Chef-background.png',
   'https://i.postimg.cc/PJbM1HTs/ChefHome.jpg',
-  '/Users/alphonsotate/Desktop/Classwork/ChefNtly/client/src/images/IMG_0295.PNG',
+  '../../images/IMG_0295.PNG',
   'https://lorempixel.com/800/400/food/4',
   'https://lorempixel.com/800/400/food/5'
 ]} />
