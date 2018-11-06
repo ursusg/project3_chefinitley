@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { check, validationResult } = require('express-validator');
+// const { check, validationResult } = require('express-validator');
 const chefController = require("../../controllers/chefController");
 
 // Matches with "/api/chef"
@@ -14,14 +14,14 @@ router
   .put(chefController.update)
   .delete(chefController.remove);
 
-// Routes with "/signup"
-router
-  .route("/chefs/signup")
-  .post(chefController.create);
+// // Routes with "/signup"
+// router
+//   .route("/signup")
+//   .post(chefController.create);
 
-router
-  .route("/api/chef")
-  .get(chefController.findAll)
+// router
+//   .route("/api/chefs")
+//   .get(chefController.findAll)
 
 
 module.exports = router;

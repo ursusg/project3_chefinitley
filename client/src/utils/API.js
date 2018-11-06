@@ -16,6 +16,6 @@ export default {
   },
   // Saves a book to the database
   saveChef: function(chefData) {
-    return axios.post("/chefs/signup", chefData);
+    return axios.post("/api/chefs", chefData);
   }
 };

@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const chefSchema = new Schema({
-  chefName: {type: String, required: true},
-  email: {type: String, required: true},
-  password: {type: String, required: true},
-  city: {type: String, required: true},
-  bio: {type: String},
-  date: { type: Date, default: Date.now},
-  availability: { type: String, required: true},
-  range: { type: Number, required: true},
+  chefName: {type: String, required: true}
+  // email: {type: String, required: true},
+  // password: {type: String, required: true},
+  // city: {type: String, required: true},
+  // bio: {type: String},
+  // date: { type: Date, default: Date.now},
+  // availability: { type: String, required: true},
+  // range: { type: Number, required: true},
   // firstname: { type: String, required: true },
   // lastname: { type: String, required: true },
   // email: { type: String, required: true },
