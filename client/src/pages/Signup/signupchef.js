@@ -8,10 +8,10 @@ class SignUpChef extends Component {
     chefName: "",
     email: "",
     password: "",
-    foods: [],
-    description: "",
-    availability: "",
     city: "",
+    bio: "",
+    foods: [],
+    availability: "",
     range: ""
   };
 
@@ -19,27 +19,29 @@ class SignUpChef extends Component {
   formSubmit = event => {
     event.preventDefault();
     console.log("Submit button works!");
-  
-    event.preventDefault()
 
-    var chefData = {
+    let chefData = {
       chefName: this.state.chefName,
       email: this.state.email,
       password: this.state.password,
       foods: this.state.foods,
-      description: this.state.description,
+      bio: this.state.bio,
       availability: this.state.availability,
       city: this.state.city,
       range: this.state.range
     }
 
-    console.log(this.state)
+    console.log(chefData)
     API.saveChef({
       chefData
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
+
+  uploadFile = () => {
+    console.log("Added a file!")
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -50,64 +52,99 @@ class SignUpChef extends Component {
 
   render() {
     return (
-      <div className="container signups">
-        <Row>
-          <Input s={6} label="Name" />
-        </Row>
-        <Row s={12}>
-          <Input type="email" label="Email" s={6} />
-        </Row>
-        <Row>
-          <Input type="password" label="Password" s={6} />
-        </Row>
+      <form className="container signups" >
+          <Row>
+            <Input s={6} 
+                label="Name" 
+                onChange={(event) => this.handleInputChange(event)} 
+                name="chefName"
+                value={this.state.chefName}
+            />
+          </Row>
+          <Row s={12}>
+            <Input 
+                type="email"
+                label="Email" 
+                s={6} 
+                name="email"
+                onChange={(event) => this.handleInputChange(event)} 
+            />
+          </Row>
+          <Row>
+            <Input 
+                type="password" 
+                label="Password" 
+                s={6} 
+                name="password"
+                onChange={(event) => this.handleInputChange(event)}
+            />
+          </Row>
 
-        <Row>
-          <Input
-            type="file"
-            label="File"
-           
-            s={12}
-            multiple
-            placeholder="Upload one or more files"
-            >
-            </Input>
-        </Row>
-
-        {/* <Row>
-          <Input type="textarea" label="Description" s={5} />
-          <Button
-            floating
-            small
-            className="orange addbtn"
-            waves="light"
-            icon="add"
-            s={2}
+          <Row>
+          <Input 
+              type="textarea" 
+              label="Bio" 
+              s={12} 
+              name="bio"
+              onChange={(event) => this.handleInputChange(event)}
           />
-        </Row> */}
+          </Row>
 
-        <Row>
-          <Input type="textarea" label="Availability" s={6}/>
-        </Row>
+          <Row>
+            <Input 
+                type="textarea" 
+                label="Availability" 
+                s={6} 
+                name="availability"
+                onChange={(event) => this.handleInputChange(event)} 
+              />
+          </Row>
 
-        <Row>
-          <Input onChange={this.handleInputChange} s={12} type="select" label="City" defaultValue="2" name="city">
-            <option value="1">Chicago</option>
-            <option value="2">Evanston</option>
-            <option value="3">Des Plaines</option>
-          </Input>
+          <Row>
+            <Input 
+                s={6} 
+                type="select" 
+                label="City" 
+                // defaultValue="2" 
+                onChange={(event) => this.handleInputChange(event)}
+                name="city"
+            >
+              <option value="Chicago">Chicago</option>
+              <option value="Evanston">Evanston</option>
+              <option value="Des Plaines">Des Plaines</option>
+            </Input>
 
-          <Input onChange={this.handleInputChange} s={12} type="select" label="Range" defaultValue="2" name="range">
-            <option value="1">0-5 Miles</option>
-            <option value="2">0-10 Miles</option>
-            <option value="3">0-15 Miles</option>
-          </Input>
-        </Row>
+            <Input 
+                s={6} 
+                type="select" 
+                label="Range" 
+                // defaultValue="2" 
+                onChange={(event) => this.handleInputChange(event)} 
+                name="range"
+            >
+              <option value="5">0-5 Miles</option>
+              <option value="10">0-10 Miles</option>
+              <option value="15">0-15 Miles</option>
+            </Input>
+          </Row>
 
-        <Row>
-          <Button className="orange" onClick={this.formSubmit}>Submit</Button>
-        </Row>
-        
-      </div>
+          <Row>
+            <Input
+              type="file"
+              label="Menu upload"
+              s={12}
+              multiple
+              placeholder="(REQUIRED) Keep under 16MB"
+              readOnly
+              name="foods"
+              // onChange={(event) => this.handleInputChange(event)}
+            />
+          </Row>
+
+          <Row>
+            <Button className="orange" onClick={(event) => this.formSubmit (event)}>Submit</Button>
+          </Row>
+      </form>
     );
   }
 }
