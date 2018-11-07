@@ -5,13 +5,14 @@ import "./signupchef.css";
 
 class SignUpChef extends Component {
   state = {
-    chefName: ""
-    // email: "",
-    // password: "",
-    // city: "",
-    // bio: "",
-    // availability: "",
-    // range: ""
+    chefName: "",
+    email: "",
+    password: "",
+    city: "",
+    bio: "",
+    availability: "",
+    range: ""
+    // menu: null
   };
 
   // Function declarations for how this component works
@@ -20,14 +21,15 @@ class SignUpChef extends Component {
     console.log("Submit button works!");
 
     let chefData = {
-      chefName: this.state.chefName
-      // email: this.state.email,
-      // password: this.state.password,
+      chefName: this.state.chefName,
+      email: this.state.email,
+      password: this.state.password,
       // foods: this.state.foods,
-      // bio: this.state.bio,
-      // availability: this.state.availability,
-      // city: this.state.city,
-      // range: this.state.range
+      bio: this.state.bio,
+      availability: this.state.availability,
+      city: this.state.city,
+      range: this.state.range
+      // menu: this.state.menu
     }
 
     console.log(chefData)
@@ -56,7 +58,7 @@ class SignUpChef extends Component {
                 label="Name" 
                 onChange={(event) => this.handleInputChange(event)} 
                 name="chefName"
-                value={this.state.chefName}
+                // value={this.state.chefName}
             />
           </Row>
           <Row s={12}>
@@ -80,7 +82,6 @@ class SignUpChef extends Component {
 
           <Row>
           <Input 
-              type="textarea" 
               label="Bio" 
               s={12} 
               name="bio"
@@ -90,7 +91,6 @@ class SignUpChef extends Component {
 
           <Row>
             <Input 
-                type="textarea" 
                 label="Availability" 
                 s={6} 
                 name="availability"
@@ -134,7 +134,7 @@ class SignUpChef extends Component {
               multiple
               placeholder="(REQUIRED) Keep under 16MB"
               readOnly
-              name="foods"
+              name="menu"
               // onChange={(event) => this.handleInputChange(event)}
             />
           </Row>

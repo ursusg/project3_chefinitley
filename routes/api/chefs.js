@@ -7,6 +7,7 @@ router.route("/")
   .get(chefController.findAll)
   .post(chefController.create);
 
+
 // Matches with "/api/chef/:id"
 router
   .route("/:id")
