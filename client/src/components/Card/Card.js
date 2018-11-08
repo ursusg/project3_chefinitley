@@ -7,7 +7,7 @@ export default () => (
  <Card header={<CardTitle reveal image={"https://i.postimg.cc/D0LDSR8R/Takeout.jpg"} waves='light'/>}
     title="Create A Name for Yourself"
     reveal={<p>Join the Revolution, Earn Income by simply doing what you love.</p>}>
-    <p><a href="/becomeachef">Become A Chef On our Platform</a></p>
+    <p><a href="/Signup">Become A Chef On our Platform</a></p>
 
    
 </Card>
