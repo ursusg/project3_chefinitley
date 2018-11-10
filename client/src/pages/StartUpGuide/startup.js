@@ -7,7 +7,7 @@ const StartUp = () => {
     <div className="container signups">
       <h4 className="center">How to get Started with Chefinately</h4>
       
-      <Collection header="Chefs">
+      <Collection href="/" header="Chefs">
         <CollectionItem href="/">Food Service Sanitation Certificate</CollectionItem>
         <CollectionItem href="/">Shared Kitchen Link</CollectionItem>
         <CollectionItem href="/">Certificate of Insurance</CollectionItem>
@@ -15,12 +15,12 @@ const StartUp = () => {
       </Collection>
 
 
-      <Collection header="Customers">
+      {/* <Collection header="Customers">
         <CollectionItem >Pick a Chef </CollectionItem>
         <CollectionItem >Pick a Kitchen</CollectionItem>
-        {/* <CollectionItem ></CollectionItem>
-        <CollectionItem ></CollectionItem> */}
-      </Collection>
+        <CollectionItem ></CollectionItem>
+        <CollectionItem ></CollectionItem>
+      </Collection> */}
 
 
       

@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Feed from "./pages/FeedPage"
 import StartUpGuide from "./pages/StartUpGuide";
 import Dashboard from "./pages/Dashboard";
+import Footer from "./components/Footer"
 
 
 
@@ -29,6 +30,7 @@ const App = () => (
         <Route exact path="/dashboard" component={Dashboard} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
+      <Footer />
     </div>
   </Router>
 );
