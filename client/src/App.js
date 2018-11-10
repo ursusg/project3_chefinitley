@@ -10,7 +10,7 @@ import SignUpCustomer from "./pages/SignUpCustomer";
 import About from "./pages/About";
 import Feed from "./pages/FeedPage"
 import StartUpGuide from "./pages/StartUpGuide";
-
+import Footer from "./components/Footer"
 
 
 const App = () => (
@@ -27,6 +27,7 @@ const App = () => (
         <Route exact path="/startupguide" component={StartUpGuide} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
+      <Footer />
     </div>
   </Router>
 );
