@@ -83,7 +83,7 @@ class SignUpChef extends Component {
           <Row>
           <Input 
               label="Bio" 
-              s={12} 
+              s={6} 
               name="bio"
               onChange={(event) => this.handleInputChange(event)}
           />
@@ -129,7 +129,7 @@ class SignUpChef extends Component {
           <Row>
             <Input
               type="file"
-              label="Menu upload"
+              label="Menu upload" 
               s={12}
               multiple
               placeholder="(REQUIRED) Keep under 16MB"

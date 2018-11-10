@@ -47,7 +47,7 @@ class SignUpCustomer extends Component {
       <form className="container signups" >
         <Row>
           <Input s={6}
-            label="Name"
+            label="First Name"
             onChange={(event) => this.handleInputChange(event)}
             name="firstname"
           // value={this.state.chefName}
@@ -56,8 +56,8 @@ class SignUpCustomer extends Component {
         
         <Row>
           <Input
-            label="lastname"
-            s={12}
+            label="Last Name"
+            s={6}
             name="lastname"
             onChange={(event) => this.handleInputChange(event)}
           />
