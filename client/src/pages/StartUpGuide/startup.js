@@ -14,7 +14,7 @@ const StartUp = () => {
       
 
     
-      <Collection startup>
+      <Collection>
       {/* <Icon tiny>attachment</Icon> */}
         <CollectionItem href="https://www.cityofchicago.org/city/en/depts/cdph/provdrs/healthy_restaurants/svcs/enroll_in_a_foodsanitationcertificationcourse.html">City of Chicago-Food Service Sanitation Certificate</CollectionItem>
         <CollectionItem href="https://www.cityofchicago.org/city/en/depts/bacp/sbc/business_licensing.html">City of Chicago-Shared Kithen User License</CollectionItem>
