@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Input, Button } from 'react-materialize';
+import { Row, Input, Button, Col, Section } from 'react-materialize';
 import API from "../../utils/API";
-// import "./signupchef.css";
+
+ import "./signupcustomer.css";
+
+
+
 
 class SignUpCustomer extends Component {
 
@@ -21,6 +25,7 @@ class SignUpCustomer extends Component {
       lastname: this.state.lastname,
       email: this.state.email,
       password: this.state.password,
+
       // foods: this.state.foods,
       // bio: this.state.bio,
       // availability: this.state.availability,
@@ -45,46 +50,56 @@ class SignUpCustomer extends Component {
   render() {
     return (
       <form className="container signups" >
-        <Row>
-          <Input s={6}
+      <Section>
+      <Row className="center main">
+        <Col className="left" s={6}>
+          <Input s={12}
             label="First Name"
             onChange={(event) => this.handleInputChange(event)}
             name="firstname"
-          // value={this.state.chefName}
+           value={this.state.firstname}
           />
-        </Row>
+       
         
-        <Row>
+       
           <Input
             label="Last Name"
-            s={6}
+            s={12}
             name="lastname"
             onChange={(event) => this.handleInputChange(event)}
+            value={this.state.lastname}
           />
-        </Row>
+       
 
-        <Row s={12}>
+       
           <Input
             type="email"
             label="Email"
-            s={6}
+            s={12}
             name="email"
             onChange={(event) => this.handleInputChange(event)}
+            value= {this.state.email}
           />
-        </Row>
-        <Row>
+       
+      
           <Input
             type="password"
             label="Password"
-            s={6}
+            s={12}
             name="password"
             onChange={(event) => this.handleInputChange(event)}
+            value={this.state.password}
           />
-        </Row>
-
-        <Row>
+      
+        
+        
           <Button className="orange" onClick={(event) => this.formSubmit(event)}>Submit</Button>
+          </Col >
+        <Col s={6} className="rowwood left center">
+        <img className="chefwood" src="https://i.postimg.cc/SK1MmdBT/chefinately-wood.png" alt="chefinatelylogo"></img>
+        </Col>
         </Row>
+        </Section>
       </form>
     );
   }

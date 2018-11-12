@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, {Component} from 'react';
  import Carousel from "../../components/Carousel";
 import Search from "../../components/Input";
 // import Footer from "../../components/Footer";
@@ -6,16 +6,26 @@ import Icons from "../../components/Icons";
 // import Card from "../../components/Card"
 
 import Card from "../../components/Card"
+import API from "../../utils/API"
 
 
 
 
 
-const Home = () => (
-  
+class Home extends Component {
+  state ={
+    city:"",
+    cuisine:"",
+    API,
+  }
+
+  render() {
+    return (
       <div>
         <Carousel/>
-        <Search />
+        <Search 
+        
+        />
         <Icons />
         <Card />
         {/* <Footer /> */}
@@ -24,6 +34,8 @@ const Home = () => (
         {/* <Footer /> */}
 
         </div>
-    );
+    )
+  }
+}
   
   export default Home;
