@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
- import Carousel from "../../components/Carousel";
-import Search from "../../components/Input";
-// import Footer from "../../components/Footer";
-import Icons from "../../components/Icons";
-// import Card from "../../components/Card"
-import Footer from "../../components/Footer";
-import Card from "../../components/Card";
+import Carousel from "../../components/Carousel"
 import API from "../../utils/API";
 import Aside from "../../components/Aside";
-
-
+import {Col, Row, Input, Button} from "react-materialize"
+import "./Dashboard.css"
 
 
 
@@ -25,7 +19,8 @@ class Dashboard extends Component {
     city: "",
     range: "",
     API: "",
-    chefs: ""
+    chefs: "",
+    cuisine:""
   };
 
   loadChefs = () => {
@@ -44,20 +39,34 @@ class Dashboard extends Component {
       .catch(err => console.log(err));
   };
 
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.city && this.state.cuisine) {
+      API.getChefs({
+        city: this.state.city,
+        cuisine: this.state.cuisine,
+         })
+        .then(res => this.loadChefs())
+        .catch(err => console.log(err));
+    }
+  };
+
   
 
 
   render() {
     return (
       <div>
-        <Aside>
+        <Aside ClassName="aside">
           
         </Aside>
         <Carousel/>
-        <Search />
-        <Icons />
-        <Card />
-        <Footer />
+  
+   
+        
+     
+        
 
         {/* <Card /> */}
         {/* <Footer /> */}
