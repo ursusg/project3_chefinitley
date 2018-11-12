@@ -1,12 +1,14 @@
 import React, {Component} from "react";
-import { Col, Row, Input, Container, Icon, Section, Button, List, ListItem} from "react-materialize";
+import { Col, Row, Input,  Icon, Section, Button, List, ListItem} from "react-materialize";
 import  "./Aside.css"
 import API from "../../utils/API"
 
 class Dashboard extends Component {
 
     state = {
-        chefs: []
+        chefs: [],
+        cuisine: "",
+        city: ""
       };
     
       componentDidMount() {
@@ -15,19 +17,33 @@ class Dashboard extends Component {
     
       loadChefs = () => {
         API.getChefs()
-          .then(res => this.setState({ books: res.data }))
+          .then(res => this.setState({ chefs: res.data }))
           .catch(err => console.log(err));
+      };
+
+      handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.city && this.state.cuisine) {
+            
+          API.getChefs({
+            city: this.state.city,
+            cuisine: this.state.cuisine,
+           
+          }) 
+            .then(res => this.loadChefs())
+            .catch(err => console.log(err));
+        }
       };
 
 
     render() {
         return (
-<Section>
-  <Row className=''>
+<Section className="center">
+  <Row className='left'>
     <Col l={12} className="num1">
     
       
-   <Col s= {3} className="aside left num2">
+   <Col s= {3} className="aside left num2 container">
    <Icon large>pizza</Icon>
     <h2 className="order">Order Now</h2>
     <Col s={12} className="center">
@@ -38,10 +54,10 @@ class Dashboard extends Component {
     <Input label="city">
     </Input>
     </Col>
-    <Col s={12} className="carry-pickup">
+    <Col s={12} className="center carry-pickup">
     <Input label="cuisine">
     </Input>
-    <Button className="orange">Submit</Button>
+    <Button onClick={() => this.handleFormSubmit}  className="orange">Submit</Button>
     </Col>
     <Col s={12} className="center carry-pickup">
     <Button className="brown" name="Pickup">
@@ -52,9 +68,9 @@ class Dashboard extends Component {
     </Button>
     </Col>
     <Col s={12} className="center carry-pickup" >
-   <Col s={4}><Button className="orange" ><Icon>$</Icon></Button></Col>
-   <Col s={4}><Button className="orange"><Icon>$$</Icon></Button></Col>
-   <Col s={4}><Button className="orange"><Icon>$$$</Icon></Button></Col>
+   <Col s={4}><Button onClick={() => this.handleFormSubmit} className="orange" ><Icon>$</Icon></Button></Col>
+   <Col s={4}><Button onClick={() => this.handleFormSubmit} className="orange"><Icon>$$</Icon></Button></Col>
+   <Col s={4}><Button onClick={() => this.handleFormSubmit} className="orange"><Icon>$$$</Icon></Button></Col>
    
     </Col>
     <Col s={12} className="center carry-pickup">
@@ -76,6 +92,7 @@ class Dashboard extends Component {
               <List>
                 {this.state.chefs.map(chef => (
                   <ListItem key={chef._id}>
+                  <img src={chef.profilepic} ></img>
                     <a href={"/chefs/" + chef._id}>
                       <strong>
                         {chef.name} by {chef.city}
