@@ -28,8 +28,8 @@ class SignUpChef extends Component {
       bio: this.state.bio,
       availability: this.state.availability,
       city: this.state.city,
-      range: this.state.range
-      // menu: this.state.menu
+      range: this.state.range,
+      menu: this.state.menu
     }
 
     console.log(chefData)
@@ -47,6 +47,13 @@ class SignUpChef extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value
+    });
+  };
+
+  handleMenuUpload = event => {
+    const{name, value} = event.target;
+    this.setState({
+    [name]: btoa(value)
     });
   };
 
@@ -135,7 +142,7 @@ class SignUpChef extends Component {
               placeholder="(REQUIRED) Keep under 16MB"
               readOnly
               name="menu"
-              // onChange={(event) => this.handleInputChange(event)}
+              onChange={(event) => this.handleMenuUpload(event)}
             />
           </Row>
 
