@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Feed from "./pages/FeedPage"
 import StartUpGuide from "./pages/StartUpGuide";
 import Footer from "./components/Footer"
+import PdfPage from "./pages/PdfPage"
 
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
         <Route exact path="/about" component={About} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/startupguide" component={StartUpGuide} />
+        <Route exact path="/pdf" component={PdfPage} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
       <Footer />

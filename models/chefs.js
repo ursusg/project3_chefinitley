@@ -9,8 +9,8 @@ const chefSchema = new Schema({
   bio: {type: String},
   date: { type: Date, default: Date.now},
   availability: { type: String, required: true},
-  range: { type: Number, required: true}
-  // menu: {type: File, required: true }
+  range: { type: Number, required: true},
+  menu: {type: String, required: true }
   // firstname: { type: String, required: true },
   // lastname: { type: String, required: true },
   // email: { type: String, required: true },
