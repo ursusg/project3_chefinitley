@@ -12,7 +12,7 @@ module.exports = {
   findById: function(req, res) {
     db.Chef
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(Chef => res.json(Chef))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {

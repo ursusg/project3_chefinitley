@@ -9,8 +9,10 @@ const routes = require('./routes')
 
 
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// DONT TOUCH THIS WAS IMPORTANT AF!
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ limit:'50mb', extended: true }));
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
