@@ -44,7 +44,7 @@ class Dashboard extends Component {
     
       
    <Col s= {3} className="aside left num2 container">
-   <Icon large>pizza</Icon>
+    <img className="boxlogo" src="https://i.postimg.cc/SNYBDm9j/Chefinatley-Icon.png" alt="cheflogo"></img>
     <h2 className="order">Order Now</h2>
     <Col s={12} className="center">
    
