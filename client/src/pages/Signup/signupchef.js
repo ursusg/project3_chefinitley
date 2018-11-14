@@ -3,6 +3,7 @@ import { Row, Input, Button } from "react-materialize";
 import API from "../../utils/API";
 import "./signupchef.css";
 
+
 class SignUpChef extends Component {
 
   state = {
@@ -51,14 +52,31 @@ class SignUpChef extends Component {
       [name]: value
     });
   };
+  // DON'T TOUCH THIS SHIT! IT WAS BITCH TO GET WORKING
 
   handleMenuUpload = event => {
+    console.log(event.target.files)
+    let file = event.target.files;
+    let reader = new FileReader();
+
+    reader.readAsBinaryString(file[0]);
+
     const { name, value } = event.target;
     this.setState({
       [name]: btoa(value)
     });
   };
 
+
+    reader.onload = (e) => {
+      console.log(btoa(e.target.result))
+      this.setState({
+        menu: btoa(e.target.result)
+      });
+    }
+
+  };
+// ///////////////////////////////////////////////////////////
   render() {
     return (
       <form className="container signups" >
@@ -151,7 +169,7 @@ class SignUpChef extends Component {
             s={12}
             multiple
             placeholder="(REQUIRED) Keep under 16MB"
-            readOnly
+            // readOnly
             name="menu"
             onChange={(event) => this.handleMenuUpload(event)}
           />
