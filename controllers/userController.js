@@ -1,4 +1,11 @@
 const db = require("../models");
+const bcrypt = require('bcryptjs');
+var generatedSalt = bcrypt.genSalt(10);
+
+// function definition for hash a password
+hashPass = (password) => {
+  bcrypt.hashSync(password, generatedSalt);
+};
 
 // Defining methods for the customerController
 module.exports = {
