@@ -182,7 +182,7 @@ class userInterface extends React.Component {
               <span>{chef.city} </span>
               </Col>
               <Col s={12}>
-              
+              <a href={`/pdf/` + chef._id} target="blank">Menu</a>
               </Col>
              </Col>
               
