@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Input, Button } from "react-materialize";
+import { Row, Input, Button, Col, Section } from "react-materialize";
 import API from "../../utils/API";
 import "./signupchef.css";
 
@@ -52,55 +52,54 @@ class SignUpChef extends Component {
 
   render() {
     return (
+      <Section className="center">
       <form className="container signups" >
-          <Row>
-            <Input s={6} 
+          <Row className="signup container">
+            <Col className="left" s={6} m={6}>
+            <Input s={12} 
                 label="Name" 
                 onChange={(event) => this.handleInputChange(event)} 
                 name="chefName"
                 // value={this.state.chefName}
             />
-          </Row>
-          <Row s={12}>
+           
+         
+         
             <Input 
                 type="email"
                 label="Email" 
-                s={6} 
+                s={12} 
                 name="email"
                 onChange={(event) => this.handleInputChange(event)} 
             />
-          </Row>
-          <Row>
+          
+     
             <Input 
                 type="password" 
                 label="Password" 
-                s={6} 
+                s={12} 
                 name="password"
                 onChange={(event) => this.handleInputChange(event)}
             />
-          </Row>
+         
 
-          <Row>
+        
           <Input 
               label="Bio" 
-              s={6} 
+              s={12} 
               name="bio"
               onChange={(event) => this.handleInputChange(event)}
           />
-          </Row>
-
-          <Row>
+         
             <Input 
                 label="Availability" 
-                s={6} 
+                s={12} 
                 name="availability"
                 onChange={(event) => this.handleInputChange(event)} 
               />
-          </Row>
-
-          <Row>
+         
             <Input 
-                s={6} 
+                s={12} 
                 type="select" 
                 label="City" 
                 // defaultValue="2" 
@@ -113,7 +112,7 @@ class SignUpChef extends Component {
             </Input>
 
             <Input 
-                s={6} 
+                s={12} 
                 type="select" 
                 label="Range" 
                 // defaultValue="2" 
@@ -124,9 +123,7 @@ class SignUpChef extends Component {
               <option value="10">0-10 Miles</option>
               <option value="15">0-15 Miles</option>
             </Input>
-          </Row>
-
-          <Row>
+           <Row>
             <Input
               type="file"
               label="Menu upload" 
@@ -137,12 +134,17 @@ class SignUpChef extends Component {
               name="menu"
               // onChange={(event) => this.handleInputChange(event)}
             />
-          </Row>
-
-          <Row>
+         
             <Button className="orange" onClick={(event) => this.formSubmit (event)}>Submit</Button>
           </Row>
+           </Col >
+
+           <Col s={6} className="rowwood right">
+        <img className="chefwood" src="https://i.postimg.cc/SK1MmdBT/chefinately-wood.png" alt="chefinatelylogo"></img>
+        </Col>
+          </Row>
       </form>
+      </Section>
     );
   }
 }

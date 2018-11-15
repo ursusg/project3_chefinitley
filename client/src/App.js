@@ -10,7 +10,7 @@ import SignUpCustomer from "./pages/SignUpCustomer";
 import About from "./pages/About";
 import Feed from "./pages/FeedPage"
 import StartUpGuide from "./pages/StartUpGuide";
-import Dashboard from "./pages/Dashboard";
+import userInterface from "./pages/Dashboard";
 import Footer from "./components/Footer"
 
 
@@ -27,7 +27,7 @@ const App = () => (
         <Route exact path="/about" component={About} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/startupguide" component={StartUpGuide} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard" component={userInterface} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
       <Footer />

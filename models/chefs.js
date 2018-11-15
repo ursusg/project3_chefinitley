@@ -11,7 +11,8 @@ const chefSchema = new Schema({
   availability: { type: Boolean, required: true},
   range: { type: Number, required: true},
   foodimg: {type: String},
-  profilepic:{type: String}
+  profilepic:{type: String},
+  cuisines: {type: String, }
   // menu: {type: File, required: true }
   // firstname: { type: String, required: true },
   // lastname: { type: String, required: true },

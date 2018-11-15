@@ -20,5 +20,8 @@ export default {
   },
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
+  },
+  getCuisines: function() {
+    return axios.get("/api/cuisines");
   }
 };
