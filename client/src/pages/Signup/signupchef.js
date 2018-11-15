@@ -5,7 +5,6 @@ import "./signupchef.css";
 
 
 class SignUpChef extends Component {
-
   state = {
     chefName: "",
     email: "",
@@ -13,9 +12,7 @@ class SignUpChef extends Component {
     city: "",
     bio: "",
     availability: "",
-    range: "",
-    // signupError: ""
-    // menu: null
+    range: ""
   };
 
   // Function declarations for how this component works
@@ -54,41 +51,25 @@ class SignUpChef extends Component {
   };
   // DON'T TOUCH THIS SHIT! IT WAS BITCH TO GET WORKING
 
-  // handleMenuUpload = event => {
-  //   console.log(event.target.files)
-  //   let file = event.target.files;
-  //   let reader = new FileReader();
+  handleMenuUpload = event => {
+    console.log(event.target.files)
+    let file = event.target.files;
+    let reader = new FileReader();
 
-  //   reader.readAsBinaryString(file[0]);
+    reader.readAsBinaryString(file[0]);
 
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: btoa(value)
-  //   });
-  // };
+    reader.onload = (e) => {
+      console.log(btoa(e.target.result))
+      this.setState({
+        menu: btoa(e.target.result)
+      });
+    }
 
-
-  //   reader.onload = (e) => {
-  //     console.log(btoa(e.target.result))
-  //     this.setState({
-  //       menu: btoa(e.target.result)
-  //     });
-  //   }
-
-  // };
+  };
 // ///////////////////////////////////////////////////////////
   render() {
     return (
       <form className="container signups" >
-      {/* This row contains just the errors for signing up */}
-        {/* <Row>
-          {
-            (this.state.signUpError) ? (
-              <p>{this.state.signupError}</p>
-            ) : (null)
-          }
-        </Row> */}
-      {/* From here on is the actual form! */}
         <Row>
           <Input s={6}
             label="Name"
