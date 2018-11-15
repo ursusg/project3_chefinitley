@@ -45,10 +45,7 @@ export default () => (
       platform to cater to any number of individuals. Customers will be able to specify their need for a specific
       cuisine and request a specific chef.
       
-      {/* A chef can decide whether
-      they’re making a specialty dinner of the day or spending time catering for
-      an event. Customers will be able to specify their need for a specific
-      cuisine and request a specific chef. */}
+     
     </p>
   </Footer>
 );

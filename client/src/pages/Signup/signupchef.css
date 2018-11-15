@@ -3,6 +3,7 @@
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 5%;
+
 }
 
 .addbtn {
@@ -25,3 +26,14 @@
   width: 100px;
   height: 100px;
 }
+
+
+  .btn, .btn-large {
+      background-color: orange;
+  }
+
+  .btn:hover, .btn-large:hover {
+      background-color: #ffb74d ;
+  }
+  
+
