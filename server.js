@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const routes = require('./routes')
 
 
+
 // Define middleware here
 // DONT TOUCH THIS WAS IMPORTANT AF!
 app.use(bodyParser.json({limit: '50mb'}));
@@ -26,7 +27,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chefinately");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chefinately",{ useNewUrlParser: true });
 
 
 app.listen(PORT, () => {

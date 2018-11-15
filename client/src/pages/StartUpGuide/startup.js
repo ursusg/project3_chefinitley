@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Col, Card, Collection, CollectionItem, Icon } from "react-materialize";
 import "./startup.css";
 
@@ -43,9 +44,11 @@ const StartUp = () => {
   );
 };
 
-export default StartUp;
 
-{
+
+
+
+export default StartUp;
   /* <Col m={6} s={12}>
         <Card
           //   className="blue-grey darken-1"
@@ -61,4 +64,4 @@ export default StartUp;
           </Collection>
         </Card>
       </Col> */
-}
+

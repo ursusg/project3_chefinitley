@@ -9,6 +9,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findCityCuisine: function(req,res) {
+    db.Chef
+      .find({city: req.params.city, foods: req.params.cuisine})
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findById: function(req, res) {
     db.Chef
       .findById(req.params.id)

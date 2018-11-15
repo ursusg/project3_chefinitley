@@ -42,7 +42,7 @@ signup(res,type){
         <Modal className="center" header="Log In with your Chefinately Account" trigger={<Button  className="brown">LogIn</Button>}>
         <Row>
         <Col className="center" s={12}>
-        <Input  type="email" label="Email" s={6} />
+        <Input className="center" type="email" label="Email" s={6} />
         <GoogleLogin
     clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
     buttonText="Login"
@@ -60,7 +60,7 @@ signup(res,type){
     callback={responseFacebook} />,
         </Col>
         <Button waves='light'>Sign In</Button>
-        </Modal>
+        </ Modal>
 
       );
     }

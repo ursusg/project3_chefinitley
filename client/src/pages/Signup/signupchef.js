@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Input, Button } from "react-materialize";
+import { Row, Input, Button, Col, Section } from "react-materialize";
 import API from "../../utils/API";
 import "./signupchef.css";
 
@@ -69,7 +69,10 @@ class SignUpChef extends Component {
 // ///////////////////////////////////////////////////////////
   render() {
     return (
+      <Section className="center">
       <form className="container signups" >
+       <Row className="signup container">
+       <Col className="left" s={6} m={6}>
         <Row>
           <Input s={6}
             label="Name"
@@ -161,7 +164,14 @@ class SignUpChef extends Component {
         <Row>
           <Button className="btn" onClick={(event) => this.formSubmit(event)}>Submit</Button>
         </Row>
+  </Col >
+
+ <Col s={6} className="rowwood right">
+        <img className="chefwood" src="https://i.postimg.cc/SK1MmdBT/chefinately-wood.png" alt="chefinatelylogo"></img>
+        </Col>
+          </Row>
       </form>
+      </Section>
     );
   }
 }
