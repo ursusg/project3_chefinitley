@@ -16,7 +16,7 @@ class PdfPage extends Component {
     }
 
     loadMenu = () => {
-        API.getChef("5bea2b820e097414142e189f")
+        API.getChef()
             .then(res => this.setState({ menu: res.data.menu }))
             // .then(res => console.log(res.data.menu))
             .catch(err => console.log(err));
