@@ -12,7 +12,8 @@ class SignUpChef extends Component {
     city: "",
     bio: "",
     availability: "",
-    range: ""
+    range: "",
+    profilepic: "",
   };
 
   // Function declarations for how this component works
@@ -29,7 +30,8 @@ class SignUpChef extends Component {
       availability: this.state.availability,
       city: this.state.city,
       range: this.state.range,
-      menu: this.state.menu
+      menu: this.state.menu,
+      profilepic: this.state.profilepic
     }
 
     console.log(chefData)
@@ -62,6 +64,22 @@ class SignUpChef extends Component {
       console.log(btoa(e.target.result))
       this.setState({
         menu: btoa(e.target.result)
+      });
+    }
+
+  };
+
+  handleImgUpload = event => {
+    console.log(event.target.files)
+    let file = event.target.files;
+    let reader = new FileReader();
+
+    reader.readAsBinaryString(file[0]);
+
+    reader.onload = (e) => {
+      console.log(btoa(e.target.result))
+      this.setState({
+        profilepic: btoa(e.target.result)
       });
     }
 
@@ -160,6 +178,22 @@ class SignUpChef extends Component {
           />
         
         </Row>
+
+                <Row>
+          
+          <Input
+            type="file"
+            label="Profile Pic"
+            s={12}
+            multiple
+            placeholder="JPEG ONLY; <16MB"
+            // readOnly
+            name="profilepic"
+            onChange={(event) => this.handleImgUpload(event)}
+          />
+        
+        </Row>
+
 
         <Row>
           <Button className="btn" onClick={(event) => this.formSubmit(event)}>Submit</Button>

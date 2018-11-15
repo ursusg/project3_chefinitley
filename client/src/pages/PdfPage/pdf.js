@@ -33,6 +33,7 @@ class PdfPage extends Component {
         return (
             <div>
                 <Fragment>
+                <Section className="center">
                     <Document
                         file={`data:application/pdf;base64,${menu}`}
                         onLoadSuccess={this.onDocumentLoad}
@@ -40,6 +41,7 @@ class PdfPage extends Component {
                         <Page pageNumber={pageNumber} />
                     </Document>
                     <p>Page {pageNumber} of {numPages}</p>
+                </Section>
                 </Fragment>
             </div>
         );

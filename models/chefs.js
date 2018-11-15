@@ -8,7 +8,7 @@ const chefSchema = new Schema({
   city: {type: String, required: true},
   bio: {type: String},
   date: { type: Date, default: Date.now},
-  availability: { type: Boolean, required: true},
+  availability: { type: String, required: true},
   range: { type: Number, required: true},
   menu: {type: String, required: true },
   foodimg: {type: String},
