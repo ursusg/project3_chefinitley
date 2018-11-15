@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Input, Button, Col, Section } from "react-materialize";
 import API from "../../utils/API";
 import "./signupchef.css";
-
+import fire from "../../config/Fire"
 
 class SignUpChef extends Component {
   state = {

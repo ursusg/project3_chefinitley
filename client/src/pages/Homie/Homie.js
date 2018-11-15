@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
  import Carousel from "../../components/Carousel";
 import Search from "../../components/Input";
-// import Footer from "../../components/Footer";
 import Icons from "../../components/Icons";
-// import Card from "../../components/Card"
-
 import Card from "../../components/Card"
 import API from "../../utils/API"
-
-
-
-
+import {BrowserRouter as Router} from "react-router-dom";
 
 class Home extends Component {
-  state ={
+  state = {
     city:"",
     cuisine:"",
     API,
@@ -23,17 +17,10 @@ class Home extends Component {
     return (
       <div>
         <Carousel/>
-        <Search 
-        
-        />
+        <Search />
         <Icons />
         <Card />
-        {/* <Footer /> */}
-
-        {/* <Card /> */}
-        {/* <Footer /> */}
-
-        </div>
+      </div>
     )
   }
 }

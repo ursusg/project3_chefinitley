@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
-// import Home from "./pages/Home";
 import Homie from "./pages/Homie";
 // import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Nav";
@@ -20,12 +20,21 @@ import Footer from "./components/Footer"
 import PdfPage from "./pages/PdfPage"
 import fire from "./config/Fire"
 
+// // Creating a Route component
+// const Route = ({ component: Component, ...rest }) => (
+//   <Route {...rest} render={(props) => (
+//       this.state.user === true
+//           ? <Component {...props} />
+//           : <Redirect to="/signup" />
+//   )} />
+// );
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
-      user: null,
+      user: {},
     }
   }
 
@@ -49,29 +58,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">{this.state.user ? (<Homie />) : (<Login />)}</div>
-      // <Router>
-      //   <div>
-
-      //     <Navbar />
-      //     <Switch>
-      //       <Route exact path="/" component={Homie} />
-      //       <Route exact path="/login" component={Login} />
-      //       <Route exact path="/signup" component={Signup} />
-      //       <Route exact path="/signupcustomer" component={SignUpCustomer} />
-      //       <Route exact path="/about" component={About} />
-      //       <Route exact path="/feed" component={Feed} />
-      //       <Route exact path="/startupguide" component={StartUpGuide} />
-      //       <Route exact path="/pdf/:id" component={PdfPage} />
-      //       <Route exact path="/dashboard" component={Dashboard} />
-      //       {/* <Route component={NoMatch} /> */}
-      //     </Switch>
-      //     <Footer />
-      //   </div>
-      // </Router>
-        
+      
+      <Router>
+        <div>
+          <Navbar/>
+           <Route exact path="/" component={Homie} />
+           <Route exact path="/signup" component={Signup} />
+           <Route exact path="/signupcustomer" component={SignUpCustomer} />
+           <Route exact path="/about" component={About} />
+           <Route exact path="/startupguide" component={StartUpGuide} />
+           <Route exact path="/feed" component={Feed} />
+           <Route exact path="/pdf/:id" component={PdfPage} />
+           <Route exact path="/dashboard" component={userInterface} />
+        </div>
+      </Router>
     )
   }
+
 };
 
 export default App;
