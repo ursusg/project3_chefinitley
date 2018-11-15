@@ -4,7 +4,7 @@ import "./startup.css";
 
 const StartUp = () => {
   return (
-    <div className="container signups">
+    <div className="container info">
       <h4 className="center">How to get Started with Chefinately</h4>
       <p>Have a current Food Service Sanitation Certificate. </p>
           

@@ -3,6 +3,7 @@
     margin-top: 5%;
     margin-bottom: 5%;
     padding: 5%;
+    background-color: gray;
 
 }
 
@@ -20,4 +21,12 @@
     color: orange;
   }
 
+
+  .btn, .btn-large {
+      background-color: orange;
+  }
+
+  .btn:hover, .btn-large:hover {
+      background-color: #ffb74d ;
+  }
   

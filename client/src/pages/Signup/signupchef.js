@@ -144,9 +144,10 @@ class SignUpChef extends Component {
         </Row>
 
         <Row>
+          
           <Input
             type="file"
-            label="Menu upload"
+            label="Menu Upload"
             s={12}
             multiple
             placeholder="(REQUIRED) Keep under 16MB"
@@ -154,10 +155,11 @@ class SignUpChef extends Component {
             name="menu"
             onChange={(event) => this.handleMenuUpload(event)}
           />
+        
         </Row>
 
         <Row>
-          <Button className="orange" onClick={(event) => this.formSubmit(event)}>Submit</Button>
+          <Button className="btn" onClick={(event) => this.formSubmit(event)}>Submit</Button>
         </Row>
       </form>
     );
