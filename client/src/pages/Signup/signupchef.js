@@ -40,6 +40,16 @@ class SignUpChef extends Component {
       chefData
     )
       .catch(err => console.log(err));
+
+      
+
+    fire.auth().createUserWithEmailAndPassword(
+        this.state.email, 
+        this.state.password
+       )
+        .then((u)=>{console.log(u)})
+        .catch((error) => {console.log(error)})
+      
   };
 
   uploadFile = () => {
@@ -52,7 +62,9 @@ class SignUpChef extends Component {
       [name]: value
     });
   };
+
   // DON'T TOUCH THIS SHIT! IT WAS BITCH TO GET WORKING
+  // PDF Uploader/Reader
 
   handleMenuUpload = event => {
     console.log(event.target.files)
@@ -61,13 +73,6 @@ class SignUpChef extends Component {
 
     reader.readAsBinaryString(file[0]);
 
-    const { name, value } = event.target;
-    this.setState({
-      [name]: btoa(value)
-    });
-  };
-
-
     reader.onload = (e) => {
       console.log(btoa(e.target.result))
       this.setState({
@@ -75,7 +80,7 @@ class SignUpChef extends Component {
       });
     }
 
-  };
+
 // ///////////////////////////////////////////////////////////
   render() {
     return (
@@ -179,7 +184,7 @@ class SignUpChef extends Component {
           <Button className="orange" onClick={(event) => this.formSubmit(event)}>Submit</Button>
         </Row>
       </form>
-    );
+    )
   }
 }
 
