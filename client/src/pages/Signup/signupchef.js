@@ -5,7 +5,6 @@ import "./signupchef.css";
 
 
 class SignUpChef extends Component {
-
   state = {
     chefName: "",
     email: "",
@@ -13,9 +12,7 @@ class SignUpChef extends Component {
     city: "",
     bio: "",
     availability: "",
-    range: "",
-    // signupError: ""
-    // menu: null
+    range: ""
   };
 
   // Function declarations for how this component works
@@ -61,13 +58,6 @@ class SignUpChef extends Component {
 
     reader.readAsBinaryString(file[0]);
 
-    const { name, value } = event.target;
-    this.setState({
-      [name]: btoa(value)
-    });
-  };
-
-
     reader.onload = (e) => {
       console.log(btoa(e.target.result))
       this.setState({
@@ -80,15 +70,6 @@ class SignUpChef extends Component {
   render() {
     return (
       <form className="container signups" >
-      {/* This row contains just the errors for signing up */}
-        {/* <Row>
-          {
-            (this.state.signUpError) ? (
-              <p>{this.state.signupError}</p>
-            ) : (null)
-          }
-        </Row> */}
-      {/* From here on is the actual form! */}
         <Row>
           <Input s={6}
             label="Name"
