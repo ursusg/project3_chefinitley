@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const bcrypt = require("bcryptjs");
 
 const chefSchema = new Schema({
   chefName: {type: String, required: true},
@@ -9,11 +8,14 @@ const chefSchema = new Schema({
   city: {type: String, required: true},
   bio: {type: String},
   date: { type: Date, default: Date.now},
-  availability: { type: String},
-  range: { type: Number},
-  menu: {type: String},
+  availability: { type: Boolean, required: true},
+  range: { type: Number, required: true},
+  menu: {type: String, required: true },
   foodimg: {type: String},
-  profilepic:{type: String}
+  profilepic:{type: String},
+  cuisines: {type: String, }
+  // menu: {type: File, required: true }
+
   // firstname: { type: String, required: true },
   // lastname: { type: String, required: true },
   // email: { type: String, required: true },
@@ -28,16 +30,6 @@ const chefSchema = new Schema({
   //          lunch: String,
   //          breakfast: String }
 });
-
-// Adding a function definition to the model that allows us to generate hashes
-chefSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
-};
-
-// Adding a function definition to the model that validates the password for the login page
-chefSchema.methods.validPassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
-}
 
 const Chef = mongoose.model("Chef", chefSchema);
 

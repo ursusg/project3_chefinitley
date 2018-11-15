@@ -93,7 +93,7 @@ class SignUpCustomer extends Component {
       
         
         
-          <Button className="orange" onClick={(event) => this.formSubmit(event)}>Submit</Button>
+          <Button className="btn" onClick={(event) => this.formSubmit(event)}>Submit</Button>
           </Col >
         <Col s={6} className="rowwood left center">
         <img className="chefwood" src="https://i.postimg.cc/SK1MmdBT/chefinately-wood.png" alt="chefinatelylogo"></img>

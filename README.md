@@ -1,6 +1,6 @@
 # Chefinately
 <p> Chefinately provides independent chefs a service to connect with customers who are looking for home-cooked meals. As well as providing chefs with a platform to cater to any number of individuals. 
-A chef can decide whether they’re making a specialty dinner of the day or spending time catering for an event. Customers will be able to specify their need for a specific cuisine and request a specific chef</P>
+A chef can decide whether they’re making a specialty dinner of the day or spending time catering for an event. Customers will be able to specify their need for a specific cuisine and request a specific chef.</P>
 
 <h3>Deployment<h3>
 
@@ -15,7 +15,10 @@ A chef can decide whether they’re making a specialty dinner of the day or spen
 </ul>
 
 <h3>Contributors</h3>
-<p>Ursusg</p>
-<p>Mandoh</p>
-<p>Phenophons</p>
-<p>Rodriguez32</p>
+<ul>
+<li>Ursusg</li>
+<li>Mandoh</li>
+<li>Phenophons</li>
+<li>Rodriguez32</li>
+</ul>
+

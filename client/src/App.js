@@ -15,7 +15,7 @@ import SignUpCustomer from "./pages/SignUpCustomer";
 import About from "./pages/About";
 import Feed from "./pages/FeedPage"
 import StartUpGuide from "./pages/StartUpGuide";
-import Dashboard from "./pages/Dashboard";
+import userInterface from "./pages/Dashboard";
 import Footer from "./components/Footer"
 import PdfPage from "./pages/PdfPage"
 import fire from "./config/Fire"

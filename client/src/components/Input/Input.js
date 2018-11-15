@@ -24,7 +24,7 @@ const search = (props) => (
       defaultValue="Pizza"
       value={props.children}
     />
-    <Button className="submit center brown"  >Submit</Button>
+    <Button className="submit center brown" >Submit</Button>
     </Col>
   </Row>
 );

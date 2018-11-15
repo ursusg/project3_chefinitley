@@ -1,10 +1,11 @@
 import React from "react";
+
 import { Col, Card, Collection, CollectionItem, Icon } from "react-materialize";
 import "./startup.css";
 
 const StartUp = () => {
   return (
-    <div className="container signups">
+    <div className="container info">
       <h4 className="center">How to get Started with Chefinately</h4>
       <p>Have a current Food Service Sanitation Certificate. </p>
           
@@ -43,9 +44,11 @@ const StartUp = () => {
   );
 };
 
-export default StartUp;
 
-{
+
+
+
+export default StartUp;
   /* <Col m={6} s={12}>
         <Card
           //   className="blue-grey darken-1"
@@ -61,4 +64,4 @@ export default StartUp;
           </Collection>
         </Card>
       </Col> */
-}
+

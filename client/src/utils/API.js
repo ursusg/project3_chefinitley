@@ -16,7 +16,7 @@ export default {
   },
   // Saves a user to the database
   saveChef: function(chefData) {
-    return axios.post("/api/chefs/signup", chefData);
+    return axios.post("/api/chefs", chefData);
   },
    // Gets the user with the given id
    getUser: function(id) {
@@ -24,5 +24,8 @@ export default {
   },
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
+  },
+  getCuisines: function() {
+    return axios.get("/api/cuisines");
   }
 };

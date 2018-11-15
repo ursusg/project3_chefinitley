@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Row, Input, Button } from "react-materialize";
+import { Row, Input, Button, Col, Section } from "react-materialize";
 import API from "../../utils/API";
 import "./signupchef.css";
 
 
 class SignUpChef extends Component {
-
   state = {
     chefName: "",
     email: "",
@@ -13,9 +12,7 @@ class SignUpChef extends Component {
     city: "",
     bio: "",
     availability: "",
-    range: "",
-    // signupError: ""
-    // menu: null
+    range: ""
   };
 
   // Function declarations for how this component works
@@ -41,15 +38,15 @@ class SignUpChef extends Component {
     )
       .catch(err => console.log(err));
 
-      
+
 
     fire.auth().createUserWithEmailAndPassword(
-        this.state.email, 
-        this.state.password
-       )
-        .then((u)=>{console.log(u)})
-        .catch((error) => {console.log(error)})
-      
+      this.state.email,
+      this.state.password
+    )
+      .then((u) => { console.log(u) })
+      .catch((error) => { console.log(error) })
+
   };
 
   uploadFile = () => {
@@ -66,7 +63,7 @@ class SignUpChef extends Component {
   // DON'T TOUCH THIS SHIT! IT WAS BITCH TO GET WORKING
   // PDF Uploader/Reader
 
-  handleMenuUpload = event => {
+  handleMenuUpload = (event) => {
     console.log(event.target.files)
     let file = event.target.files;
     let reader = new FileReader();
@@ -77,115 +74,118 @@ class SignUpChef extends Component {
       console.log(btoa(e.target.result))
       this.setState({
         menu: btoa(e.target.result)
-      });
-    }
-
-
-// ///////////////////////////////////////////////////////////
-  render() {
-    return (
-      <form className="container signups" >
-      {/* This row contains just the errors for signing up */}
-        {/* <Row>
-          {
-            (this.state.signUpError) ? (
-              <p>{this.state.signupError}</p>
-            ) : (null)
-          }
-        </Row> */}
-      {/* From here on is the actual form! */}
-        <Row>
-          <Input s={6}
-            label="Name"
-            onChange={(event) => this.handleInputChange(event)}
-            name="chefName"
-          // value={this.state.chefName}
-          />
-        </Row>
-        <Row s={12}>
-          <Input
-            type="email"
-            label="Email"
-            s={6}
-            name="email"
-            onChange={(event) => this.handleInputChange(event)}
-          />
-        </Row>
-        <Row>
-          <Input
-            type="password"
-            label="Password"
-            s={6}
-            name="password"
-            onChange={(event) => this.handleInputChange(event)}
-          />
-        </Row>
-
-        <Row>
-          <Input
-            label="Bio"
-            s={6}
-            name="bio"
-            onChange={(event) => this.handleInputChange(event)}
-          />
-        </Row>
-
-        <Row>
-          <Input
-            label="Availability"
-            s={6}
-            name="availability"
-            onChange={(event) => this.handleInputChange(event)}
-          />
-        </Row>
-
-        <Row>
-          <Input
-            s={6}
-            type="select"
-            label="City"
-            // defaultValue="2" 
-            onChange={(event) => this.handleInputChange(event)}
-            name="city"
-          >
-            <option value="Chicago">Chicago</option>
-            <option value="Evanston">Evanston</option>
-            <option value="Des Plaines">Des Plaines</option>
-          </Input>
-
-          <Input
-            s={6}
-            type="select"
-            label="Range"
-            // defaultValue="2" 
-            onChange={(event) => this.handleInputChange(event)}
-            name="range"
-          >
-            <option value="5">0-5 Miles</option>
-            <option value="10">0-10 Miles</option>
-            <option value="15">0-15 Miles</option>
-          </Input>
-        </Row>
-
-        <Row>
-          <Input
-            type="file"
-            label="Menu upload"
-            s={12}
-            multiple
-            placeholder="(REQUIRED) Keep under 16MB"
-            // readOnly
-            name="menu"
-            onChange={(event) => this.handleMenuUpload(event)}
-          />
-        </Row>
-
-        <Row>
-          <Button className="orange" onClick={(event) => this.formSubmit(event)}>Submit</Button>
-        </Row>
-      </form>
-    )
+      })
+    };
   }
-}
 
-export default SignUpChef;
+    // ///////////////////////////////////////////////////////////
+    render() {
+      return (
+        <Section className="center">
+          <form className="container signups" >
+            <Row className="signup container">
+              <Col className="left" s={6} m={6}>
+                <Row>
+                  <Input s={6}
+                    label="Name"
+                    onChange={(event) => this.handleInputChange(event)}
+                    name="chefName"
+                  // value={this.state.chefName}
+                  />
+                </Row>
+                <Row s={12}>
+                  <Input
+                    type="email"
+                    label="Email"
+                    s={6}
+                    name="email"
+                    onChange={(event) => this.handleInputChange(event)}
+                  />
+                </Row>
+                <Row>
+                  <Input
+                    type="password"
+                    label="Password"
+                    s={6}
+                    name="password"
+                    onChange={(event) => this.handleInputChange(event)}
+                  />
+                </Row>
+
+                <Row>
+                  <Input
+                    label="Bio"
+                    s={6}
+                    name="bio"
+                    onChange={(event) => this.handleInputChange(event)}
+                  />
+                </Row>
+
+                <Row>
+                  <Input
+                    label="Availability"
+                    s={6}
+                    name="availability"
+                    onChange={(event) => this.handleInputChange(event)}
+                  />
+                </Row>
+
+                <Row>
+                  <Input
+                    s={6}
+                    type="select"
+                    label="City"
+                    // defaultValue="2" 
+                    onChange={(event) => this.handleInputChange(event)}
+                    name="city"
+                  >
+                    <option value="Chicago">Chicago</option>
+                    <option value="Evanston">Evanston</option>
+                    <option value="Des Plaines">Des Plaines</option>
+                  </Input>
+
+                  <Input
+                    s={6}
+                    type="select"
+                    label="Range"
+                    // defaultValue="2" 
+                    onChange={(event) => this.handleInputChange(event)}
+                    name="range"
+                  >
+                    <option value="5">0-5 Miles</option>
+                    <option value="10">0-10 Miles</option>
+                    <option value="15">0-15 Miles</option>
+                  </Input>
+                </Row>
+
+                <Row>
+
+                  <Input
+                    type="file"
+                    label="Menu Upload"
+                    s={12}
+                    multiple
+                    placeholder="(REQUIRED) Keep under 16MB"
+                    // readOnly
+                    name="menu"
+                    onChange={(event) => this.handleMenuUpload(event)}
+                  />
+
+                </Row>
+
+                <Row>
+                  <Button className="btn" onClick={(event) => this.formSubmit(event)}>Submit</Button>
+                </Row>
+              </Col >
+
+              <Col s={6} className="rowwood right">
+                <img className="chefwood" src="https://i.postimg.cc/SK1MmdBT/chefinately-wood.png" alt="chefinatelylogo"></img>
+              </Col>
+            </Row>
+          </form>
+        </Section>
+      );
+    }
+  }
+
+  export default SignUpChef;
