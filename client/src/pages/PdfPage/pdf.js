@@ -16,7 +16,7 @@ class PdfPage extends Component {
     }
 
     loadMenu = () => {
-        API.getChef("5becd1c93940b2416c1693ba")
+        API.getChef(this.props.match.params.id)
             .then(res => this.setState({ menu: res.data.menu }))
             // .then(res => console.log(res.data.menu))
             .catch(err => console.log(err));
@@ -33,6 +33,7 @@ class PdfPage extends Component {
         return (
             <div>
                 <Fragment>
+                <Section className="center">
                     <Document
                         file={`data:application/pdf;base64,${menu}`}
                         onLoadSuccess={this.onDocumentLoad}
@@ -40,6 +41,7 @@ class PdfPage extends Component {
                         <Page pageNumber={pageNumber} />
                     </Document>
                     <p>Page {pageNumber} of {numPages}</p>
+                </Section>
                 </Fragment>
             </div>
         );

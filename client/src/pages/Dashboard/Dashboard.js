@@ -176,13 +176,13 @@ class userInterface extends React.Component {
              <Col s={9}>
             {this.state.chefs.map(chef => (
              <Col s={3}>
-              <img className="chefpics" alt ="chefpicture"src={chef.profilepic}></img>
+              <img className="chefpics" alt ="chefpicture"src={'data:image/jpeg;base64,' + chef.profilepic}></img>
               <span>{chef.chefName}</span> 
               <Col s={12}>
               <span>{chef.city} </span>
               </Col>
               <Col s={12}>
-              
+              <a href={`/pdf/` + chef._id} target="blank">Menu</a>
               </Col>
              </Col>
               
