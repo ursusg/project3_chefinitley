@@ -54,28 +54,28 @@ class SignUpChef extends Component {
   };
   // DON'T TOUCH THIS SHIT! IT WAS BITCH TO GET WORKING
 
-  handleMenuUpload = event => {
-    console.log(event.target.files)
-    let file = event.target.files;
-    let reader = new FileReader();
+  // handleMenuUpload = event => {
+  //   console.log(event.target.files)
+  //   let file = event.target.files;
+  //   let reader = new FileReader();
 
-    reader.readAsBinaryString(file[0]);
+  //   reader.readAsBinaryString(file[0]);
 
-    const { name, value } = event.target;
-    this.setState({
-      [name]: btoa(value)
-    });
-  };
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: btoa(value)
+  //   });
+  // };
 
 
-    reader.onload = (e) => {
-      console.log(btoa(e.target.result))
-      this.setState({
-        menu: btoa(e.target.result)
-      });
-    }
+  //   reader.onload = (e) => {
+  //     console.log(btoa(e.target.result))
+  //     this.setState({
+  //       menu: btoa(e.target.result)
+  //     });
+  //   }
 
-  };
+  // };
 // ///////////////////////////////////////////////////////////
   render() {
     return (
@@ -163,9 +163,10 @@ class SignUpChef extends Component {
         </Row>
 
         <Row>
+          
           <Input
             type="file"
-            label="Menu upload"
+            label="Menu Upload"
             s={12}
             multiple
             placeholder="(REQUIRED) Keep under 16MB"
@@ -173,10 +174,11 @@ class SignUpChef extends Component {
             name="menu"
             onChange={(event) => this.handleMenuUpload(event)}
           />
+        
         </Row>
 
         <Row>
-          <Button className="orange" onClick={(event) => this.formSubmit(event)}>Submit</Button>
+          <Button className="btn" onClick={(event) => this.formSubmit(event)}>Submit</Button>
         </Row>
       </form>
     );
