@@ -35,11 +35,25 @@ class App extends Component {
     super(props)
     this.state = {
       user: {},
+      isLoggedIn: false
+    }
+  }
+
+  userExists (user) {
+    if (user) {
+      this.setState({
+        isLoggedIn: true
+      })
+    } else {
+      this.setState({
+        isLoggedIn: false
+      })
     }
   }
 
   componentDidMount() {
     this.authListener();
+    this.userExists();
   }
 
   // Auth listener from Firebase that understands when a user is signed in.
@@ -47,21 +61,32 @@ class App extends Component {
     fire.auth().onAuthStateChanged((user) => {
       console.log(user);
       if (user) {
-        this.setState({ user });
+        this.setState({ 
+              user,
+              isLoggedIn: true 
+            });
         // localStorage.setItem('user', user.uid);
       } else {
-        this.setState({ user: null });
+        this.setState({ 
+          user: null, 
+          isLoggedIn: false
+        });
       }
     });
     this.authListener = this.authListener.bind(this)
   }
 
   render() {
+    // Write conditional Rendering here
+    // Pass down user as a prop inside of Nav.js
+    // Props.name or props.user, etc...
+    // https://reactjs.org/docs/conditional-rendering.html
+
     return (
-      
+        
       <Router>
         <div>
-          <Navbar/>
+          <Navbar isLoggedIn={this.state.isLoggedIn}/>
            <Route exact path="/" component={Homie} />
            <Route exact path="/signup" component={Signup} />
            <Route exact path="/signupcustomer" component={SignUpCustomer} />
