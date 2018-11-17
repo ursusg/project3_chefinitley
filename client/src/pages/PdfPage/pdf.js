@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, Section } from "react";
 import { Document, Page } from "react-pdf";
 import API from "../../utils/API";
 // import Pdf from "../../images/Sample_Menu.pdf";
