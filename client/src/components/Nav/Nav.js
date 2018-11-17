@@ -107,9 +107,9 @@ class Nav extends Component {
     return (
       <Navbar brand={Img} className="grey darken-2 appbar" left>
         <Row>
-          <NavItem href="/Signup">Chef Account</NavItem>
-          <NavItem href="/SignUpCustomer">Customer Account</NavItem>
-          <NavItem href="/StartUpGuide">StartUp Guide</NavItem>
+          <NavItem href="/signup">Chef Account</NavItem>
+          <NavItem href="/signUpCustomer">Customer Account</NavItem>
+          <NavItem href="/startUpGuide">StartUp Guide</NavItem>
           <Modal
             className="center login"
             header={header}
