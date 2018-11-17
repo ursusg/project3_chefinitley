@@ -37,11 +37,59 @@
     }
     
     .boxlogo{
-        width: 200px;
-        height:200px;
+        width: 125px;
+        height:125px;
     }
 
     .chefpics{
         width: 200px;
         height: 200px
     }
+
+    .chipcol{
+        float: left
+    }
+
+    /* .cuisineslist{
+       
+    } */
+
+    .chefwoodlogo{
+        height: 60px;
+        width: 60px;
+       float: right
+    }
+
+    a.avatar.collection-item{
+       color:#ff8f00;
+       background-color: lightgray;
+       
+       border-bottom: solid 10px #6d4c41
+       
+    }
+
+    .ratings{
+        height: 17px;
+        width: 17px
+    }
+body{
+background-color: lightgray
+}
+    .orders{
+        height:50%;
+        width: 50%;
+        background-color: #ff8f00
+    }
+
+    .prices {
+        margin: auto
+    }
+
+    .cuisines{
+        background-color: #d7ccc8
+    }
+
+    
+
+
+    

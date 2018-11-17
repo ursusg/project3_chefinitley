@@ -5,7 +5,7 @@ import ImportedImage from "../../images/Logo(transparent).PNG";
 let Img = <img alt="ime" className="logo" src={ImportedImage} />;
 
 export default () => (
-  <Footer
+  <Footer 
     copyrights="Chefinately @copy 2018 Copyright Text"
     moreLinks={
       <a className="grey-text text-lighten-4 right" href="#!">
@@ -36,7 +36,7 @@ export default () => (
         </li>
       </ul>
     }
-    className="example grey"
+    className="grey darken-2"
   >
     <h5 className="white-text">{Img}</h5>
     <p className="grey-text text-lighten-4">

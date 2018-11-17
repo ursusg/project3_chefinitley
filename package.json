@@ -23,6 +23,7 @@
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
     "express": "^4.16.3",
+    "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
     "mime": "^2.3.1",
     "mime-types": "^2.1.21",
@@ -30,6 +31,10 @@
     "react-materialize": "^2.4.8",
     "react-pdf": "^3.0.5",
     "react-router-dom": "^4.3.1",
-    "redis": "^2.8.0"
+    "react-star-rating-component": "^1.4.1",
+    "react-star-ratings": "^2.3.0",
+    "recompose": "^0.30.0",
+    "redis": "^2.8.0",
+    "webpack": "^2.0.0"
   }
 }

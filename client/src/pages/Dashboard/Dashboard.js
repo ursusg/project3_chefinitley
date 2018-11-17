@@ -1,6 +1,8 @@
 import React from "react";
 import API from "../../utils/API";
 import "./Dashboard.css";
+
+
 import {
   Col,
   Row,
@@ -8,14 +10,18 @@ import {
   Icon,
   Section,
   Button,
-  // Thead,
-  // Td,
-  // Tr,
-  // Tbody,
-  // Th,
-  // Table
+  Collection,
+  CollectionItem,
+  Chip,
+ 
   
-} from "react-materialize";
+  
+  } from "react-materialize";
+  
+  import StarRating from 'react-star-ratings';
+  import GoogleMaps from "../../components/Googlemaps";
+
+  
 
 class userInterface extends React.Component {
   state = {
@@ -29,33 +35,35 @@ class userInterface extends React.Component {
     range: "",
     foodimg: "",
     profilepic: "",
-    cuisines: []
+    cuisines: [],
+    image:"",
+    cuisine:"",
+    longitude:"",
+    latitude:""
+  
   };
 
   componentDidMount() {
     this.loadChefs();
-    // this.loadCuisines();
+    this.loadCuisines();
   }
+ setCuisines = res =>  
+  this.setState({ 
+    cuisines: res.data,
+    cuisine: "",
+    image:"",
+    
+  }); 
 
-  // loadCuisines = () => {
-  //   API.getCuisines()
-  //     .then(res =>
-  //       this.setState({ cuisines: res.data,
-  //         cuisine: "",
-  //         image:""
+  loadCuisines = () => {
+    API.getCuisines() 
+      .then(res => this.setCuisines(res)
+        
+      )
+      .catch(err => console.log(err));
+  };
 
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // loadCuisines = () => {
-  //   API.getCuisines()
-  //       .then(res =>
-  //         this.setState({ foods: res.data , name:"", image:"" })
-  //         )
-  //       .catch(err => console.log(err));
-  // }
+  
 
   setChefs = res =>
     this.setState({
@@ -68,28 +76,45 @@ class userInterface extends React.Component {
       email: "",
       cuisines: "",
       foodimg: "",
-      profilepic: ""
+      profilepic: "",
+      longitude:"",
+    latitude:""
     });
 
   loadChefs = () => {
     return API.getChefs().then(res => this.setChefs(res));
     // .catch(err => console.log(err));
   };
+  loadChefsCity = () => {
+    return API.getChefs().then(res => this.setChefs(res));
+    // .catch(err => console.log(err));
+  };
+  
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.city && this.state.cuisines) {
-      API.getChefs({
+    if (this.state.city && this.state.cuisine) {
+      
+      
+      API.findCityCuisine({
         city: this.state.city,
         cuisine: this.state.cuisine
       })
-        .then(res => this.loadChefs())
+        .then(res => 
+
+          this.loadChefsCity()
+          )
         .catch(err => console.log(err));
     }
   };
 
   render() {
+  
+    
+    
+   
     return (
+  
       <Section className="center">
         <Row className="left">
           <Col l={12} className="num1">
@@ -99,14 +124,14 @@ class userInterface extends React.Component {
                 src="https://i.postimg.cc/SNYBDm9j/Chefinatley-Icon.png"
                 alt="cheflogo"
               />
-              <h2 className="order">Order Now</h2>
+              <h3 className="order">Order Now</h3>
               <Col s={12} className="center" />
               <Col s={12} className="center carry-pickup">
                 <Input label="city" />
               </Col>
               <Col s={12} className="center carry-pickup">
                 <Input label="cuisine" />
-                <Button
+                <Button 
                   onClick={() => this.handleFormSubmit}
                   className="orange"
                 >
@@ -114,92 +139,132 @@ class userInterface extends React.Component {
                 </Button>
               </Col>
               <Col s={12} className="center carry-pickup">
-                <Button className="brown" name="Pickup">
+                <Button className="brown pickup" name="Pickup">
                   Pickup
                 </Button>
-                <Button className="brown" name="Delivery">
+                <Button className="brown delivery" name="Delivery">
                   Delivery
                 </Button>
               </Col>
               <Col s={12} className="center carry-pickup">
-                <Col s={4}>
+              
+                <Col s={6}>
                   <Button
                     onClick={() => this.handleFormSubmit}
-                    className="orange"
+                    className="orange prices"
                   >
-                    <Icon>$</Icon>
+                    High
                   </Button>
                 </Col>
-                <Col s={4}>
+                <Col s={6}>
                   <Button
                     onClick={() => this.handleFormSubmit}
-                    className="orange"
+                    className="orange prices"
                   >
-                    <Icon>$$</Icon>
-                  </Button>
-                </Col>
-                <Col s={4}>
-                  <Button
-                    onClick={() => this.handleFormSubmit}
-                    className="orange"
-                  >
-                    <Icon>$$$</Icon>
+                    Low
                   </Button>
                 </Col>
               </Col>
               <Col s={12} className="center carry-pickup">
-                <Col s={4}>
-                  <Button className="orange">
-                    <Icon>star_border</Icon>
-                  </Button>
-                </Col>
-                <Col s={4}>
+                 <Col s={6}>
                   <Button className="orange">
                     <Icon>star_half</Icon>
                   </Button>
                 </Col>
-                <Col s={4}>
+                <Col s={6}>
                   <Button className="orange">
                     <Icon>star</Icon>
                   </Button>
                 </Col>
               </Col>
             </Col>
-            <Col s={9} />
-            <Col s={9}>
-              <p>Local Chefs near you</p>
-            </Col>
-            <Col s={9}>
-              <p>Local Delivery Chefs Near you</p>
-            </Col>
-            {this.state.chefs.length ? (     
-             <Col s={9}>
-            {this.state.chefs.map(chef => (
-             <Col s={3}>
-              <img className="chefpics" alt ="chefpicture"src={chef.profilepic}></img>
-              <span>{chef.chefName}</span> 
-              <Col s={12}>
-              <span>{chef.city} </span>
-              </Col>
-              <Col s={12}>
+            <Col  />
+            <Col >
+            
               
-              </Col>
-             </Col>
-              
-             ) )}
             </Col>
-             ) : (
-              <h3>No Results to Display</h3>
-                   )}
+            <Col s={9}>
+            {this.state.chefs.length ? (   
+            <Collection>
+            {this.state.chefs.map(chef =>   (    
+  <CollectionItem  key={chef._id} className="avatar" href='/chefs/:id'>{chef.chefName}
+  <img className="circle" src={chef.profilepic} alt="chefpic"></img>
+  <img className="chefwoodlogo" alt="logo" src="https://i.postimg.cc/SK1MmdBT/chefinately-wood.png"></img>
+  <Col className="center" s ={9}>
+      <p className="cuisineslist">{chef.cuisines}</p>
+      </Col>
+      <Col className="center" s ={9}>
+      <p>{chef.city} </p>
+      <StarRating 
+          numberOfStars={5}
+          name='rating'
+          starRatedColor="gold"
+          starDimension="15px"
+          rating={chef.rating}
+          
+         />
+      </Col>
+     
+  </CollectionItem>
+
+))}
+</Collection>
+) : ( 
+  <h3> No results</h3>
+    )}
+   
+            </Col>
            
+         {this.state.cuisines.length ? (    
+            <Row s={9} className="cuisines">
+         {this.state.cuisines.map(cuisine => (   
+  <Col className="chipcol"s={2} key={cuisine._id} >
+    <Chip className="chip large" key={cuisine._id}>
+      <img src={cuisine.image} alt='Cuisine Type' />
+     {cuisine.cuisine}
+    </Chip>
+   
+    
+  </Col>
+  ) )}
+ 
+</Row>
+     ) : ( 
+      <h3>No results</h3>
+     )} 
+     <Row s={12} className="orders" >
+     
+     
+     
+     
+     </Row>
+    
+
+     <Row s={12} className="center">
+     
+     <GoogleMaps>
+     
+        
+
+     
+     </GoogleMaps>
+         
+    
+   
 
 
+
+    
+   </Row> 
+              
 
            </Col>
         </Row>
-      </Section>
+       </Section>
+     
     );
   }
 }
 
 export default userInterface;
+

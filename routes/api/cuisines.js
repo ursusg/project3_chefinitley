@@ -3,7 +3,7 @@ const router = require("express").Router();
 const cuisineController = require("../../controllers/cuisineController");
 
 // Matches with "/api/cuisines"
-router.route("/dashboard")
+router.route("/")
   .get(cuisineController.findAll);
  
 

@@ -7,6 +7,8 @@ router.route("/")
   .get(chefController.findAll)
   .post(chefController.create);
 
+router.route("/dashboard")
+  .get(chefController.findCityCuisine)
 
 // Matches with "/api/chef/:id"
 router
