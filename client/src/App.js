@@ -87,14 +87,14 @@ class App extends Component {
       <Router>
         <div>
           <Navbar isLoggedIn={this.state.isLoggedIn}/>
-           <Route exact path="/" component={Homie} />
-           <Route exact path="/signup" component={Signup} />
-           <Route exact path="/signupcustomer" component={SignUpCustomer} />
-           <Route exact path="/about" component={About} />
-           <Route exact path="/startupguide" component={StartUpGuide} />
-           <Route exact path="/feed" component={Feed} />
-           <Route exact path="/pdf/:id" component={PdfPage} />
-           <Route exact path="/dashboard" component={userInterface} />
+           <Route path="/" component={Homie} />
+           <Route path="/signup" component={Signup} />
+           <Route path="/signupcustomer" component={SignUpCustomer} />
+           <Route path="/about" component={About} />
+           <Route path="/startupguide" component={StartUpGuide} />
+           <Route path="/feed" component={Feed} />
+           <Route path="/pdf/:id" component={PdfPage} />
+           <Route path="/dashboard" component={userInterface} />
         </div>
       </Router>
     )
